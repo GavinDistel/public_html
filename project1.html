@@ -16,6 +16,9 @@
 
     <button class="toggle-button" onclick="toggleSidebar()">☰</button>
 
+    <button class="right-button" onclick="goToPage()">→</button>
+    
+
     <div class="sidebar" id="sidebar">
         <ul>
             <li> <a href="index.html" style="color: #014925;"> Home Page </a></li>
@@ -25,6 +28,12 @@
     </div>
 
     <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+    <script>
+        function goToPage() {
+            window.location.href = "project2.html"
+        }
+    </script>
 
     <script>
         function toggleSidebar() {

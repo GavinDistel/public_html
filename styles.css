@@ -23,7 +23,6 @@ a{
     font-family: "Fraunces", sariff;
 }
 
-
 div#tswcontent {
 	float: none;
 	width: 100%;
@@ -77,7 +76,21 @@ div#tswfooter {
     transition: background 0.3s, transform 0.2s;
 }
 
-.toggle-button:hover {
+.right-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgb(206, 182, 130);
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    color: #014925;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.toggle-button:hover, .right-button:hover {
     background: rgb(187, 145, 90);
     transform: scale(1.1);
 }
