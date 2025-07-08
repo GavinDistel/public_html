@@ -61,9 +61,8 @@ a{
 }
 
 .toggle-button {
-    position: fixed;
-    top: 20px;
-    left: 20px;
+    margin-top: 10px;
+    margin-left: 15px;
     background: rgb(206, 182, 130);
     border: none;
     padding: 12px 20px;
