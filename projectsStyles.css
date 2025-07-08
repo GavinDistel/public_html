@@ -1,41 +1,54 @@
-body{
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: antiquewhite;
+    font-family: "Fraunces", serif;
+}
+
+h1 {
+    cursor: default;
+    font-size: xx-large;
+    text-align: center;
+    color: rgb(151, 117, 73);
+}
+div#tswcontainer {
+    color: inherit;
+    margin-top: 100px;
     background-color: antiquewhite;
 }
 
-h1{
-    cursor: default;
-    font-size: 75px;
+div#tswheader {
+    color: rgb(151, 117, 73);
+    background-color: antiquewhite;
+    text-align: center;
+    padding-right: 15px;
+}
+
+p {
     text-align: center;
     color: rgb(151, 117, 73);
     font-family: "Fraunces", sariff;
 }
 
-p{
-    text-align: center;
-    color: rgb(151, 117, 73);
-    font-family: "Fraunces", sariff;
-}
-
-a{
+a {
     text-decoration: none;
     font-family: "Fraunces", sariff;
 }
 
-img{
+img {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 700px;
 }
 
-.page ul li{
+.page ul li {
     font-size: xx-large;
-    font-family:"Fraunces", sariff;
+    font-family: "Fraunces", sariff;
     text-align: center;
-    color:#014925;
+    color: #014925;
     list-style: none;
     letter-spacing: 2px;
-    margin-bottom:15px;
+    margin-bottom: 15px;
     padding: 15px;
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.1);
@@ -56,7 +69,7 @@ img{
     /* font-weight: bold; */
 }
 
-a{
+a {
     color: #014925;
 }
 
@@ -81,7 +94,8 @@ a{
 
 .sidebar {
     position: fixed;
-    left: -320px; /* Hidden initially */
+    left: -320px;
+    /* Hidden initially */
     top: 0;
     width: 280px;
     height: 100vh;
@@ -94,7 +108,7 @@ a{
     font-family: "Fraunces", sariff;
 }
 
-.sidebar.open{
+.sidebar.open {
     left: 0;
 }
 
@@ -142,7 +156,7 @@ a{
     visibility: hidden;
     transition: opacity 0.3s ease-in-out;
     z-index: 998;
-    display: none; 
+    display: none;
 }
 
 .overlay.active {
