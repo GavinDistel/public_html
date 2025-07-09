@@ -10,6 +10,7 @@ h1 {
     text-align: center;
     color: rgb(151, 117, 73);
 }
+
 div#tswcontainer {
     color: inherit;
     margin-top: 100px;
@@ -23,9 +24,17 @@ div#tswheader {
     padding-right: 15px;
 }
 
+div#tswfooter {
+    color: #014925;
+    background-color: antiquewhite;
+    text-align: center;
+    padding: 15px;
+
+}
+
 p {
     text-align: center;
-    color: rgb(151, 117, 73);
+    /* color: rgb(151, 117, 73); */
     font-family: "Fraunces", sariff;
 }
 

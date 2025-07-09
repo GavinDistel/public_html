@@ -45,11 +45,22 @@ div#tswcontent {
     background-color: antiquewhite;
 }
 
+div#sensor-image{
+    width: 700px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+
 div#tswcontproper {
     padding-left: 15px;
     padding-right: 15px;
     border-radius: 7px;
     text-align: center;
+    font-size: large;
     background-color: antiquewhite;
 }
 
