@@ -45,7 +45,7 @@ div#tswcontent {
     background-color: antiquewhite;
 }
 
-div#sensor-image{
+div#sensor-image {
     width: 700px;
     padding-left: 15px;
     padding-right: 15px;
@@ -79,7 +79,8 @@ div#tswheader {
 
 div#tswfooter {
     /* color: rgb(151, 117, 73); */
-    color: #014925;;
+    color: #014925;
+    ;
     background-color: antiquewhite;
     text-align: center;
     padding: 15px;
@@ -211,4 +212,86 @@ div#tswfooter {
 .overlay.active {
     opacity: 1;
     visibility: visible;
+}
+
+.custom-sidebar .menu svg {
+    height: 30px;
+    font-family: "Fraunces", sariff;
+
+}
+
+.custom-sidebar {
+    position: fixed;
+    background-color: (255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    width: 80px;
+    top: 24px;
+    left: 24px;
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.4);
+    overflow: hidden;
+    color: #014925;
+    transition: all 400ms cubic-bezier(0.07, 0.88, 0.37, 1.05);
+}
+
+.custom-sidebar .label {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-20px);
+    transition: all 600ms ease;
+}
+
+.custom-sidebar:hover .label {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+
+.custom-sidebar:hover {
+    width: 300px;
+}
+
+.custom-sidebar:hover .menu-title {
+    padding: 0 32px;
+}
+
+.custom-sidebar .menu a {
+    color: rgb(151, 117, 73);
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    text-decoration: none;
+    padding: 8px 24px;
+}
+
+.custom-sidebar .logo {
+    font-size: 30px;
+    font-weight: 900;
+    background-color: rgb(187, 145, 90);
+    color: #014925;
+    padding-top: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.custom-sidebar .menu {
+    border-top: 1px solid rgba(13, 27, 42, 0.3);
+    padding: 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.custom-sidebar .menu-title {
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: 8px 0;
+    padding: 0 20px;
+    transition: all 400ms ease;
+}
+
+.custom-sidebar .menu a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    transition: all 500ms ease;;
 }
