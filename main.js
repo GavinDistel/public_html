@@ -28,3 +28,9 @@
 //     setTimeout(start_rainbow,1000)
 
 // }
+
+const labels = document.querySelectorAll(".custom-sidebar .label");
+
+labels.forEach((label, index) => {
+    label.style.transitionDelay = `${index * 50}ms`
+});
