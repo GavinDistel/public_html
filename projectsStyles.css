@@ -204,7 +204,7 @@ img {
     right: 0;
     margin-inline: auto;
     opacity: 0;
-    transition: opacity 1s 1s;
+    transition: opacity 0.8s 0.8s;
 }
 
 .card-description {

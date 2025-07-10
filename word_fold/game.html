@@ -17,18 +17,17 @@
             position: relative; /* Establishes a coordinate system for the cells */
             width: 450px;
             height: 450px;
-            border: 2px solid #333;
-            background-color: #f0f0f0;
+            /* border: 2px solid #333; */
+            background-color: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
             overflow: hidden; /* Crucial for keeping the cells contained */
         }
 
-        /* This targets the individual cells */
-        #cell-holder > div {
-            position: absolute; /* Allows us to control position with top/left */
+        /* Removed absolute positioning for cells to allow CSS grid to work */
+        /* #cell-holder > div {
+            position: absolute;
             width: 60px;
             height: 60px;
-            
-            /* Optional: for better appearance */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -37,9 +36,9 @@
             color:rgb(151, 117, 73);
             background-color: white;
             box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-            box-sizing: border-box; /* Ensures padding/border are included in width/height */
-            user-select: none; /* Prevents text selection */
-        }
+            box-sizing: border-box;
+            user-select: none;
+        } */
     </style>
 </head>
 
