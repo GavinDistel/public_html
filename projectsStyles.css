@@ -41,13 +41,6 @@ a {
     font-family: "Fraunces", sariff;
 }
 
-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 700px;
-}
-
 .page ul li {
     font-size: xx-large;
     font-family: "Fraunces", sariff;
@@ -81,6 +74,7 @@ img {
 a {
     color: rgb(151, 117, 73);
 }
+
 .custom-sidebar .menu svg {
     height: 30px;
     font-family: "Fraunces", sariff;
@@ -99,7 +93,10 @@ a {
     overflow: hidden;
     color: #014925;
     transition: all 400ms cubic-bezier(0.07, 0.88, 0.37, 1.05);
+    z-index: 1;
 }
+
+
 
 .custom-sidebar .label {
     opacity: 0;
@@ -112,11 +109,15 @@ a {
     opacity: 1;
     pointer-events: auto;
     transform: translateX(0);
-    transition: all 600ms ease;
 }
 
 .custom-sidebar:hover {
     width: 300px;
+}
+
+.custom-sidebar:hover .menu a {
+    margin: 0 24px;
+
 }
 
 .custom-sidebar:hover .menu-title {
@@ -127,6 +128,7 @@ a {
     color: rgb(151, 117, 73);
     display: flex;
     gap: 24px;
+    white-space: nowrap;
     align-items: center;
     text-decoration: none;
     padding: 8px 24px;
@@ -158,8 +160,94 @@ a {
 }
 
 .custom-sidebar .menu a:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     transition: all 500ms ease;
     ;
+}
+
+.custom-sidebar .menu a {
+    transition: all 500ms ease;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.card-container {
+    display: grid;
+    place-items: center;
+    margin-inline: 1.5rem;
+    padding-block: 1.5rem;
+
+}
+
+.card-content {
+    display: grid;
+    row-gap: 3.5rem;
+
+}
+
+.card-article {
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.card-image {
+    width: 328px;
+    border-radius: 1.5rem;
+
+}
+
+.card-data {
+    width: 280px;
+    background-color: rgba(255, 255, 255, 0.025);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem 2rem;
+    box-shadow: 0 8px 24px rgba(1, 73, 3, 0.15);
+    border-radius: 1rem;
+    position: absolute;
+    bottom: -9rem;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    opacity: 0;
+    transition: opacity 1s 1s;
+}
+
+.card-description {
+    display: block;
+    font-size: x-small;
+    margin-bottom: 0.25rem;
+}
+
+.card-title {
+    font-size: xx-large;
+    font-weight: 500;
+    color: rgb(187, 145, 90);
+    margin-bottom: 0.75rem;
+}
+
+.card-button{
+    text-decoration: none;
+    font-size: small;
+    font-weight: 500;
+    color: rgb(187, 145, 90);
+}
+
+.card-button:hover{
+    text-decoration: underline;
+}
+
+.card-article:hover .card-data {
+    animation: show-data 1s forwards;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.card-article:hover{
+    animation: remove-overflow 2s forwards;;
 }
