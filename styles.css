@@ -5,7 +5,8 @@
 body {
     background: #000000;
     background: linear-gradient(84deg, rgba(0, 0, 0, 1) 0%, rgba(0, 23, 0, 1) 96%, rgba(0, 18, 0, 1) 100%);
-    font-family: "Fraunces";
+    font-family: "Fraunces", serif;
+    margin: 0;
 }
 
 h1 {
@@ -36,43 +37,41 @@ output {
 
 a {
     text-decoration: none;
-    font-family: "Fraunces", sariff;
 }
 
-div#tswcontent {
+ #tswcontent {
     float: none;
     width: 100%;
     color: rgb(151, 117, 73);
 }
 
-div#tswcontproper {
-    padding-left: 110px;
-    padding-right: 15px;
+ #tswcontproper {
     border-radius: 7px;
     text-align: center;
     font-size: large;
 }
 
-div#tswcontainer {
+ #tswcontainer {
     color: inherit;
-    margin-top: 100px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 110px;
+    padding-right: 15px;
+    box-sizing: border-box; /* Ensures padding is included in height calculation */
 }
 
-div#tswheader {
+ #tswheader {
     color: rgb(151, 117, 73);
     text-align: center;
-    padding-right: 15px;
-    padding-left: 110px;
 }
 
-div#tswfooter {
-    /* color: rgb(151, 117, 73); */
+ #tswfooter {
     color: #014925;
     text-align: center;
-    padding: 15px;
-    padding-left: 100px;
-    padding-right: 15px;
-
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .images {
@@ -121,16 +120,18 @@ div#tswfooter {
 
 .custom-sidebar .menu svg {
     height: 30px;
-    font-family: "Fraunces", sariff;
+    font-family: "Fraunces", serif;
 
 }
 
 .custom-sidebar {
     position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
     background-color: rgba(255, 255, 255, 0.025);
     backdrop-filter: blur(10px);
+    /* top:24px; */
     width: 80px;
-    top: 24px;
     left: 24px;
     border-radius: 10px;
     box-shadow: 0 8px 32px rgba(1, 73, 3, 0.4);
@@ -173,6 +174,8 @@ div#tswfooter {
     gap: 24px;
     align-items: center;
     text-decoration: none;
+    white-space: nowrap;
+    transition: all 500ms ease;
     padding: 8px 24px;
 }
 
@@ -204,14 +207,7 @@ div#tswfooter {
 .custom-sidebar .menu a:hover {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
-    transition: all 500ms ease;
-    ;
 }
-
-.custom-sidebar .menu a {
-    transition: all 500ms ease;
-}
-
 /* div#tswcontproper {
     backdrop-filter: blur(10px);
 } */

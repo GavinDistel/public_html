@@ -33,7 +33,6 @@ const boards = [
 
 // --- Global State Variables ---
 // A flat list of cell objects for the animation loop
-const bouncingCells = [];
 // A 2D grid of the same cell objects for game logic
 let logicalGrid = [];
 // The coordinates of the currently selected cell in the logical grid
@@ -47,49 +46,38 @@ function loadBoard(boardIndex) {
         return;
     }
 
-    // --- Reset and Set Up Board ---
     unselect();
-    bouncingCells.length = 0;
     logicalGrid = [];
 
-    const cellElements = [...document.getElementById("cell-holder").children];
-    const container = document.getElementById("cell-holder");
-    const speed = 1.5;
-    let tempRow = [];
+    const cellHolder = document.getElementById("cell-holder");
+    // Clear any existing cells to prevent duplication when changing boards
+    cellHolder.innerHTML = '';
 
-    cellElements.forEach((element, index) => {
-        const gridY = Math.floor(index / 5);
-        const gridX = index % 5;
-        const angle = Math.random() * 2 * Math.PI;
-        const cellWidth = element.offsetWidth || 60;
-        const cellHeight = element.offsetHeight || 60;
+    // Dynamically create the 5x5 grid of cells
+    for (let y = 0; y < 5; y++) {
+        const tempRow = [];
+        for (let x = 0; x < 5; x++) {
+            const element = document.createElement('div');
+            element.classList.add('cell');
 
-        const cellObject = {
-            element: element,
-            gridX: gridX,
-            gridY: gridY,
-            x: Math.random() * (container.clientWidth - cellWidth),
-            y: Math.random() * (container.clientHeight - cellHeight),
-            dx: Math.cos(angle) * speed,
-            dy: Math.sin(angle) * speed,
-            width: cellWidth,
-            height: cellHeight
-        };
+            const cellObject = {
+                element: element,
+                gridX: x,
+                gridY: y,
+            };
 
-        // Link the click event on the visual element to the logical grid position
-        element.onclick = () => on_click(gridX, gridY);
+            // Link the click event on the visual element to the logical grid position
+            element.onclick = () => on_click(x, y);
 
-        // Set the initial letter from the board data
-        element.innerHTML = board.cells[gridY][gridX];
+            // Set the initial letter from the board data
+            element.innerHTML = board.cells[y][x];
 
-        bouncingCells.push(cellObject);
-        tempRow.push(cellObject);
-
-        if (tempRow.length === 5) {
-            logicalGrid.push(tempRow);
-            tempRow = [];
+            // Add the new cell to the page and to our logical grid representation
+            cellHolder.appendChild(element);
+            tempRow.push(cellObject);
         }
-    });
+        logicalGrid.push(tempRow);
+    }
 
     document.getElementById("words").innerHTML = "Words to spell: " + board.words.join(", ");
 }
@@ -164,37 +152,6 @@ function on_click(x, y) {
     }
 }
 
-function animate() {
-    const container = document.getElementById("cell-holder");
-    const containerWidth = container.clientWidth;
-    const containerHeight = container.clientHeight;
-
-    bouncingCells.forEach(cell => {
-        // Update position based on velocity
-        cell.x += cell.dx;
-        cell.y += cell.dy;
-
-        // Check for wall collisions and reverse direction
-        if (cell.x <= 0 || (cell.x + cell.width) >= containerWidth) {
-            cell.dx *= -1;
-        }
-        if (cell.y <= 0 || (cell.y + cell.height) >= containerHeight) {
-            cell.dy *= -1;
-        }
-
-        // Clamp position to ensure cells don't get stuck out of bounds
-        cell.x = Math.max(0, Math.min(cell.x, containerWidth - cell.width));
-        cell.y = Math.max(0, Math.min(cell.y, containerHeight - cell.height));
-
-        // Apply the new position to the element's style
-        cell.element.style.left = cell.x + 'px';
-        cell.element.style.top = cell.y + 'px';
-    });
-
-    requestAnimationFrame(animate); // Loop the animation
-}
-
 // Initial game setup
 populateSelector();
 loadBoard(0); // Load the first board by default
-animate(); // Start the animation loop

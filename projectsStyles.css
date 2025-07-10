@@ -11,39 +11,39 @@ h1 {
     color: rgb(151, 117, 73);
 }
 
-div#tswcontainer {
+#tswcontainer {
     color: inherit;
     margin-top: 100px;
 }
 
-div#tswheader {
+#tswheader {
     color: rgb(151, 117, 73);
     text-align: center;
     padding-right: 15px;
 }
 
-div#tswfooter {
+#tswfooter {
     color: #014925;
     text-align: center;
     padding: 15px;
-
 }
 
 p {
     text-align: center;
     color: rgb(151, 117, 73);
-    font-family: "Fraunces", sariff;
+    font-family: "Fraunces", serif;
 }
 
 
 a {
     text-decoration: none;
-    font-family: "Fraunces", sariff;
+    font-family: "Fraunces", serif;
+    color: rgb(151, 117, 73);
 }
 
 .page ul li {
     font-size: xx-large;
-    font-family: "Fraunces", sariff;
+    font-family: "Fraunces", serif;
     text-align: center;
     color: rgb(151, 117, 73);
     box-shadow: 0 8px 32px rgba(1, 73, 3, 0.2);
@@ -66,27 +66,22 @@ a {
 .page ul li:hover {
     background: rgba(255, 255, 255, 0);
     transform: scale(1.05);
-    margin: auto;
-    max-width: 50%;
     /* font-weight: bold; */
-}
-
-a {
-    color: rgb(151, 117, 73);
 }
 
 .custom-sidebar .menu svg {
     height: 30px;
-    font-family: "Fraunces", sariff;
-
+    font-family: "Fraunces", serif;
 }
 
 .custom-sidebar {
     position: fixed;
     background-color: rgba(255, 255, 255, 0.025);
     backdrop-filter: blur(10px);
+    top: 50%;
+    transform: translateY(-50%);
     width: 80px;
-    top: 24px;
+    /* top: 24px; */
     left: 24px;
     border-radius: 10px;
     box-shadow: 0 8px 32px rgba(1, 73, 3, 0.4);
@@ -132,6 +127,7 @@ a {
     align-items: center;
     text-decoration: none;
     padding: 8px 24px;
+    transition: all 500ms ease;
 }
 
 .custom-sidebar .logo {
@@ -162,12 +158,6 @@ a {
 .custom-sidebar .menu a:hover {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
-    transition: all 500ms ease;
-    ;
-}
-
-.custom-sidebar .menu a {
-    transition: all 500ms ease;
 }
 
 img {
@@ -198,8 +188,7 @@ img {
 
 .card-image {
     width: 328px;
-    border-radius: 1.5rem;
-
+    border-radius: 1.5rem
 }
 
 .card-data {
@@ -207,7 +196,7 @@ img {
     background-color: rgba(255, 255, 255, 0.025);
     backdrop-filter: blur(10px);
     padding: 1.5rem 2rem;
-    box-shadow: 0 8px 24px rgba(1, 73, 3, 0.15);
+    box-shadow: 0 8px 24px rgba(1, 73, 3, 0.2);
     border-radius: 1rem;
     position: absolute;
     bottom: -9rem;
@@ -220,7 +209,8 @@ img {
 
 .card-description {
     display: block;
-    font-size: x-small;
+    color: rgb(187, 145, 90);
+    font-size: small;
     margin-bottom: 0.25rem;
 }
 
@@ -233,7 +223,7 @@ img {
 
 .card-button {
     text-decoration: none;
-    font-size: small;
+    font-size: medium;
     font-weight: 500;
     color: rgb(187, 145, 90);
 }
@@ -303,12 +293,39 @@ img {
     }
 }
 
-@media screen and (maxWidth: 340px){
-    .container{
+@media screen and (max-width: 340px) {
+    .container {
         margin-inline: 1rem;
     }
-    .card-data{
+
+    .card-data {
         width: 250px;
         padding: 1rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 1120px) {
+    /* .container{
+        height: 100vh; 
+    } */
+
+    .card-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card-image {
+        width: 348px;
+    }
+
+    .card-data {
+        width: 200px;
+        padding-inline: 2.5rem;
     }
 }
