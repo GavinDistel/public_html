@@ -176,7 +176,7 @@ img {
     height: auto;
 }
 
-.card-container {
+.container {
     display: grid;
     place-items: center;
     margin-inline: 1.5rem;
@@ -184,7 +184,7 @@ img {
 
 }
 
-.card-content {
+.card-container {
     display: grid;
     row-gap: 3.5rem;
 
@@ -231,14 +231,14 @@ img {
     margin-bottom: 0.75rem;
 }
 
-.card-button{
+.card-button {
     text-decoration: none;
     font-size: small;
     font-weight: 500;
     color: rgb(187, 145, 90);
 }
 
-.card-button:hover{
+.card-button:hover {
     text-decoration: underline;
 }
 
@@ -248,6 +248,67 @@ img {
     transition: opacity 0.3s;
 }
 
-.card-article:hover{
-    animation: remove-overflow 2s forwards;;
+.card-article:hover {
+    animation: remove-overflow 2s forwards;
+    ;
+}
+
+.card-article:not(:hover) {
+    animation: show-overflow 2s forwards;
+}
+
+.card-article:not(:hover) .card-data {
+    animation: remove-data 1s forwards;
+}
+
+@keyframes show-data {
+    50% {
+        transform: translateY(-10rem);
+    }
+
+    100% {
+        transform: translateY(-7rem)
+    }
+
+}
+
+@keyframes remove-overflow {
+    to {
+        overflow: initial;
+    }
+}
+
+@keyframes remove-data {
+    0% {
+        transform: translateY(-7rem);
+    }
+
+    50% {
+        transform: translateY(-10rem);
+    }
+
+    100% {
+        transform: translateY(.5rem);
+    }
+}
+
+@keyframes show-overflow {
+    0% {
+        overflow: initial;
+        pointer-events: none;
+    }
+
+    50% {
+        overflow: hidden;
+    }
+}
+
+@media screen and (maxWidth: 340px){
+    .container{
+        margin-inline: 1rem;
+    }
+    .card-data{
+        width: 250px;
+        padding: 1rem;
+    }
 }
