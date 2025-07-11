@@ -12,6 +12,7 @@ body {
 
 #store-container {
     border: 5px solid rgba(255, 255, 255, 0.25);
+    border-radius: 12px;
     box-shadow: 0 8px 32px rgba(1, 73, 3, 0.4);
     backdrop-filter: blur(5px);
     width: 100%;
@@ -23,6 +24,7 @@ body {
 
 #widget-container {
     border: 5px solid rgba(255, 255, 255, 0.25);
+    border-radius: 12px;
     box-shadow: 0 8px 32px rgba(1, 73, 3, 0.4);
     width: 100%;
     display: flex;
@@ -34,12 +36,6 @@ body {
     transform: rotateX(180deg);
     /* filter: sepia(calc(--gompei-count * 0.05)) */
 }
-
-#lawn-god-gompei {
-    filter: hue-rotate(180deg);
-    transform: rotateX(180deg);
-}
-
 .store {
     backdrop-filter: blur(5px);
     text-align: center;
@@ -82,12 +78,14 @@ body {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(5px);
     border: 3px solid rgb(151, 117, 73);
+    border-radius: 12px;
 }
 
 /* If the widget is a click widget */
 .widget:not([auto="true"]) {
     background-color: rgba(255, 255, 255, 0.05);
     border: 3px solid rgb(151, 117, 73);
+    border-radius: 12px;
 }
 
 /* Widget with image */
@@ -150,4 +148,18 @@ body {
     100% {
         width: 0%;
     }
+}
+.white-fur {
+    /* 
+      This combination of filters creates a "divine" look.
+      1. grayscale(1): Removes all color.
+      2. contrast(200%): Makes dark lines darker and light areas lighter.
+      3. brightness(1.5): Makes the whole image brighter, turning grays into white
+         but keeping the darkest lines visible as gray.
+    */
+    filter: grayscale(1) contrast(200%) brightness(1.5);
+}
+
+.speed-gompei {
+    filter: sepia(1) saturate(500%) hue-rotate(320deg);
 }
