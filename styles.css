@@ -22,6 +22,13 @@ img {
     height: auto;
 }
 
+.home-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* This will be inherited by the parent card */
+}
+
 input,
 select,
 button,
@@ -40,15 +47,16 @@ a {
 }
 
  #tswcontent {
-    float: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    color: rgb(151, 117, 73);
+    padding: 2rem;
+    box-sizing: border-box;
 }
 
  #tswcontproper {
-    border-radius: 7px;
-    text-align: center;
-    font-size: large;
+    /* This element now just centers the card */
 }
 
  #tswcontainer {
@@ -76,6 +84,43 @@ a {
 
 .images {
     width: 250px;
+}
+
+.home-card {
+    position: relative; /* This is the anchor for the text overlay */
+    max-width: 650px; /* Controls the card's maximum size */
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden; /* Crucial for containing the overlay and rounding corners */
+    box-shadow: 0 8px 32px rgba(1, 73, 3, 0.3);
+}
+
+.home-text-content {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    padding: 1.5rem 2rem;
+    background-color: rgba(255, 255, 255, 0.025); /* Semi-transparent dark background */
+    backdrop-filter: blur(8px); /* The "glass" effect */
+    border-radius: 10px; /* Give the overlay its own rounded corners */
+}
+
+.home-text-content p {
+    margin: 0;
+    color: rgb(187, 145, 90);
+    text-align: left;
+}
+
+.home-text-content p:first-child {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.home-text-content p:last-child {
+    font-size: 1rem;
+    color: rgba(187, 145, 90, 0.9); /* Slightly muted for hierarchy */
 }
 /* 
 .right-button {

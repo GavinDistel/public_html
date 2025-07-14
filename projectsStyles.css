@@ -2,6 +2,15 @@ body {
     background: #000000;
     background: linear-gradient(84deg, rgba(0, 0, 0, 1) 0%, rgba(0, 23, 0, 1) 96%, rgba(0, 18, 0, 1) 100%);
     font-family: "Fraunces", serif;
+    /* Use flexbox to center the content block */
+    display: flex;
+    align-items: center; /* This handles the vertical centering */
+    justify-content: center; /* This handles the horizontal centering */
+    min-height: 100vh; /* Ensure body takes up full screen height */
+    margin: 0;
+    /* Add padding to prevent content from overlapping with the fixed sidebar */
+    padding-left: 110px;
+    box-sizing: border-box;
 }
 
 h1 {
@@ -13,7 +22,8 @@ h1 {
 
 #tswcontainer {
     color: inherit;
-    margin-top: 100px;
+    /* This margin is no longer needed with flexbox centering */
+    /* margin-top: 100px; */
 }
 
 #tswheader {
@@ -188,7 +198,16 @@ img {
 
 .card-image {
     width: 328px;
-    border-radius: 1.5rem
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.025);
+}
+
+.gompei-image {
+    /* This filter creates a stylized, dark green tint */
+    filter: grayscale(1) sepia(1) hue-rotate(70deg) saturate(3) brightness(.7) contrast(1.2);
+    width: 328px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.025);
 }
 
 .card-data {
@@ -197,7 +216,7 @@ img {
     backdrop-filter: blur(10px);
     padding: 1.5rem 2rem;
     box-shadow: 0 8px 24px rgba(1, 73, 3, 0.2);
-    border-radius: 1rem;
+    border-radius: 10px;
     position: absolute;
     bottom: -9rem;
     left: 0;
@@ -321,6 +340,9 @@ img {
     }
 
     .card-image {
+        width: 348px;
+    }
+    .gompei-image {
         width: 348px;
     }
 
