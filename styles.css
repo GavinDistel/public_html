@@ -13,7 +13,7 @@ h1 {
     cursor: default;
     font-size: xx-large;
     text-align: center;
-    color: #014925;
+    color: rgb(151, 117, 73);
 }
 
 img {
@@ -88,7 +88,7 @@ a {
 
 .home-card {
     position: relative; /* This is the anchor for the text overlay */
-    max-width: 650px; /* Controls the card's maximum size */
+    max-width: 800px; /* Controls the card's maximum size */
     width: 100%;
     border-radius: 10px;
     overflow: hidden; /* Crucial for containing the overlay and rounding corners */
@@ -101,7 +101,7 @@ a {
     left: 1.5rem;
     right: 1.5rem;
     padding: 1.5rem 2rem;
-    background-color: rgba(255, 255, 255, 0.025); /* Semi-transparent dark background */
+    background-color: rgba(0, 0, 0, 0.025); /* Semi-transparent dark background */
     backdrop-filter: blur(8px); /* The "glass" effect */
     border-radius: 10px; /* Give the overlay its own rounded corners */
 }

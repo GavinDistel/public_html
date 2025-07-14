@@ -1,0 +1,71 @@
+body {
+    /* Make the body a flex container */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center children vertically */
+    align-items: center; /* Center children horizontally */
+    min-height: 100vh; /* Ensure body fills the full viewport height */
+    margin: 0; /* Remove default browser margin */
+    text-align: center;
+    font-family: 'Fraunces', serif;
+    background: #000000;
+    background: linear-gradient(84deg, rgba(0, 0, 0, 1) 0%, rgba(0, 23, 0, 1) 96%, rgba(0, 18, 0, 1) 100%);
+}
+
+h1 {
+    font-size: 60px;
+    margin: 0;
+    color:rgb(151, 117, 73);
+}
+
+h3 {
+    margin: 0;
+    color:rgb(151, 117, 73);
+}
+
+#scoreboard {
+    font-size: 40px;
+    font-family: 'Courier New', Courier, monospace;
+    color:rgb(151, 117, 73);
+}
+
+#game-container {
+    position: relative; /* This is the anchor for the absolutely positioned paddles */
+    width: 500px; /* Match canvas width */
+    height: 500px; /* Match canvas height */
+    margin: 0 auto; /* Center the game container */
+}
+
+#game-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.025);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(1, 73, 3, 0.4);
+    z-index: 0; /* Layer 0: The very back */
+}
+
+#gameboard {
+    /* The canvas is now a transparent layer for drawing the ball */
+    position: relative; /* This is needed to apply a z-index */
+    z-index: 1; /* Layer 1: Above the background */
+}
+
+.paddle {
+    position: absolute; /* Position paddles relative to the game-container */
+    background-color: rgb(187, 145, 90);
+    box-shadow: 0 0 10px rgba(187, 145, 90, 0.7);
+    border-radius: 4px;
+    z-index: 2; /* Layer 2: On top of everything */
+    /* The width, height, and position are now controlled by JavaScript in view.js */
+}
+
+#reset {
+    cursor: pointer;
+    border-radius: 15px;
+    width: 100px;
+    height: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    color:rgb(151, 117, 73);
+}

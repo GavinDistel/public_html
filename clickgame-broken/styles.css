@@ -8,6 +8,7 @@ body {
     background: #000000;
     background: linear-gradient(84deg, rgba(0, 0, 0, 1) 0%, rgba(0, 23, 0, 1) 96%, rgba(0, 18, 0, 1) 100%);
     color: rgb(151, 117, 73);
+    font-family: "Fraunces", serif;
 }
 
 #store-container {
