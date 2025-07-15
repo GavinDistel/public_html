@@ -1,6 +1,12 @@
+:root {
+    --background-gradient: linear-gradient(84deg, rgba(0, 0, 0, 1) 0%, rgba(0, 23, 0, 1) 96%, rgba(0, 18, 0, 1) 100%);
+    --primary-accent: rgb(187, 145, 90);
+    --secondary-accent: #014925;
+}
+
 body {
     background: #000000;
-    background: linear-gradient(84deg, rgba(0, 0, 0, 1) 0%, rgba(0, 23, 0, 1) 96%, rgba(0, 18, 0, 1) 100%);
+    background: var(--background-gradient);
     font-family: "Fraunces", serif;
     /* Use flexbox to center the content block */
     display: flex;
@@ -17,7 +23,7 @@ h1 {
     cursor: default;
     font-size: xx-large;
     text-align: center;
-    color: rgb(151, 117, 73);
+    color: var(--primary-accent);
 }
 
 #tswcontainer {
@@ -27,20 +33,21 @@ h1 {
 }
 
 #tswheader {
-    color: rgb(151, 117, 73);
+    color: var(--primary-accent);
     text-align: center;
     padding-right: 15px;
 }
 
 #tswfooter {
-    color: #014925;
+    color: var(--secondary-accent);
     text-align: center;
-    padding: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 p {
     text-align: center;
-    color: rgb(151, 117, 73);
+    color: var(--primary-accent);
     font-family: "Fraunces", serif;
 }
 
@@ -48,14 +55,14 @@ p {
 a {
     text-decoration: none;
     font-family: "Fraunces", serif;
-    color: rgb(151, 117, 73);
+    color: var(--primary-accent);
 }
 
 .page ul li {
     font-size: xx-large;
     font-family: "Fraunces", serif;
     text-align: center;
-    color: rgb(151, 117, 73);
+    color:var(--primary-accent);
     box-shadow: 0 8px 32px rgba(1, 73, 3, 0.2);
     list-style: none;
     letter-spacing: 2px;
@@ -130,7 +137,7 @@ a {
 }
 
 .custom-sidebar .menu a {
-    color: rgb(151, 117, 73);
+    color: var(--primary-accent);
     display: flex;
     gap: 24px;
     white-space: nowrap;
@@ -143,8 +150,8 @@ a {
 .custom-sidebar .logo {
     font-size: 30px;
     font-weight: 900;
-    background-color: rgb(187, 145, 90);
-    color: #014925;
+    background-color: var(--primary-accent);
+    color: var(--secondary-accent);;
     padding-top: 8px;
     padding-left: 15px;
 }
@@ -204,9 +211,10 @@ img {
 
 .gompei-image {
     /* This filter creates a stylized, dark green tint */
-    filter: grayscale(1) sepia(1) hue-rotate(70deg) saturate(3) brightness(.7) contrast(1.2);
+    /* filter: grayscale(1) sepia(1) hue-rotate(70deg) saturate(3) brightness(.7) contrast(1.2); */
     width: 328px;
     border-radius: 10px;
+    opacity: 0.75;
     background-color: rgba(255, 255, 255, 0.025);
 }
 
@@ -228,7 +236,7 @@ img {
 
 .card-description {
     display: block;
-    color: rgb(187, 145, 90);
+    color: var(--primary-accent);;
     font-size: small;
     margin-bottom: 0.25rem;
 }
@@ -236,7 +244,7 @@ img {
 .card-title {
     font-size: xx-large;
     font-weight: 500;
-    color: rgb(187, 145, 90);
+    color: var(--primary-accent);;
     margin-bottom: 0.75rem;
 }
 
@@ -244,7 +252,7 @@ img {
     text-decoration: none;
     font-size: medium;
     font-weight: 500;
-    color: rgb(187, 145, 90);
+    color: var(--primary-accent);;
 }
 
 .card-button:hover {
