@@ -1,0 +1,36 @@
+:root {
+    --background-gradient: linear-gradient(84deg, rgba(0, 0, 0, 1) 0%, rgba(0, 23, 0, 1) 96%, rgba(0, 18, 0, 1) 100%);
+    --primary-accent: rgb(187, 145, 90);
+    --secondary-accent: #014925;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    aspect-ratio: 1/1;
+    width: 575vh;
+    border: solid 1px var(--primary-accent);
+    color: var(--primary-accent);
+    background-color: rgba(255, 255, 255, 0.025);
+    box-shadow: 0 8px 32px rgba(1, 73, 3, 0.4);
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5cm;
+    border: solid 1px var(--primary-accent);
+}
+
+body {
+    background: var(--background-gradient);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.cssisbad {
+    line-height: 0;
+}

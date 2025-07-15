@@ -45,6 +45,13 @@ h1 {
     padding-bottom: 15px;
 }
 
+#tswfooter p{
+    color: var(--secondary-accent);
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
 p {
     text-align: center;
     color: var(--primary-accent);
