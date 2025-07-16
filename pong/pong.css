@@ -25,7 +25,7 @@ h3 {
 
 #scoreboard {
     font-size: 40px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Fraunces', serif;
     color:rgb(151, 117, 73);
 }
 
@@ -56,16 +56,51 @@ h3 {
     position: absolute; /* Position paddles relative to the game-container */
     background-color: rgb(187, 145, 90);
     box-shadow: 0 0 10px rgba(187, 145, 90, 0.7);
-    border-radius: 4px;
+    border-radius: 10px;
     z-index: 2; /* Layer 2: On top of everything */
     /* The width, height, and position are now controlled by JavaScript in view.js */
 }
-
+ 
+/* Shared styles for all control buttons */
+.toggle-button,
 #reset {
+    display: inline-block; /* Allows padding and margin */
+    padding: 12px 24px;
     cursor: pointer;
-    border-radius: 15px;
-    width: 100px;
-    height: 50px;
-    font-family: 'Courier New', Courier, monospace;
-    color:rgb(151, 117, 73);
+    border-radius: 10px;
+    font-family: 'Fraunces', serif;
+    font-size: 1rem;
+    color: rgb(187, 145, 90);
+    background: rgba(255, 255, 255, 0.025);
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(1, 73, 3, 0.2);
+    backdrop-filter: blur(5px);
+}
+ 
+/* Hover effect for buttons */
+#reset:hover,
+.toggle-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+ 
+/* Container for the toggle switch */
+.control-group {
+    margin-top: 15px;
+}
+ 
+/* Hide the default checkbox and style its label */
+.control-group input[type="checkbox"] {
+    display: none;
+}
+ 
+/* Style for the 'on' state of the toggle button */
+.control-group input[type="checkbox"]:checked+.toggle-button {
+    background: rgba(187, 145, 90, 0.25);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(187, 145, 90, 0.5);
+}
+#reset:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
 }

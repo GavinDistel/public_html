@@ -29,7 +29,20 @@ h1 {
 #tswcontainer {
     color: inherit;
     /* This margin is no longer needed with flexbox centering */
-    /* margin-top: 100px; */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Style for the main content area */
+#tswcontent {
+    /* Allow this section to grow and take up available vertical space */
+    flex-grow: 1;
+    /* Make it a flex container to center its own children */
+    display: flex;
+    align-items: center; /* Vertically centers the content within #tswcontent */
+    justify-content: center; /* Horizontally centers the content within #tswcontent */
 }
 
 #tswheader {

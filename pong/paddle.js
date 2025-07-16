@@ -17,14 +17,20 @@ class Paddle {
     }
 
     move(is_cpu, ball) {
+        // If CPU mode is on, the paddles will be controlled by AI
         if (is_cpu) {
-            // ball.y <- where the ball is
-            // this.y <- where the paddle is
-            // this.l <- how long the paddle is
+            const paddleCenter = this.posy + this.height / 2;
 
-            // control this.vy using ball
-            // don't set this.y! (cheating)
-            this.vely = 1;
+            // If the ball is significantly above the paddle center, move up
+            if (ball.posy < paddleCenter - PADDLE_VELOCITY) {
+                this.vely = -PADDLE_VELOCITY;
+            }
+            // If the ball is significantly below the paddle center, move down
+            else if (ball.posy > paddleCenter + PADDLE_VELOCITY) {
+                this.vely = PADDLE_VELOCITY;
+            } else {
+                this.vely = 0; // Stop moving to prevent jitter
+            }
         }
         this.posy = Math.min(BOARD_HEIGHT - this.height, Math.max(0, this.posy + this.vely));
     }
