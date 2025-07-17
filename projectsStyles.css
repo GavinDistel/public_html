@@ -17,6 +17,7 @@ body {
     /* Add padding to prevent content from overlapping with the fixed sidebar */
     padding-left: 110px;
     box-sizing: border-box;
+    cursor: default;
 }
 
 h1 {

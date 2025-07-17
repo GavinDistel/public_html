@@ -11,7 +11,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Fraunces", serif;
     background: var(--background-gradient);
     color: var(--primary-accent);
 }
@@ -55,6 +55,8 @@ main{
 .preference-section,
 .cuisine-section {
     margin-bottom: 25px;
+    max-width: 100%;
+    width: 100%;
 }
 
 label {
@@ -64,11 +66,31 @@ label {
     color: var(--primary-accent);
 }
 
-input [type="password"],
-textarea:focus,
-select:focus {
-    outline:none;
-    border-color: var(--primary-accent);
+/* General styles for all form inputs */
+input[type="password"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.025);
+    color: var(--primary-accent);
+    font-family: inherit; /* Use the body's font */
+    font-size: 1rem;
+    transition:background-color 0.3s ease;
+}
+
+select:hover{
+    background-color:rgba(255, 255, 255, 0.1) ;
+}
+
+
+/* Style for when an input is focused (clicked on) */
+input[type="password"]:focus,
+textarea:focus, select:focus {
+    outline: none;
+    border:none;
 }
 
 .api-key-section {
@@ -107,12 +129,12 @@ select:focus {
     font-size: 18px;
     font-weight: 600;
     cursor: pointer;
-    transition: transform 0.3s ease box-shadow 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.025);
+    transition:background-color 0.3s ease;
 }
 
 .generate-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(1, 73, 3, 0.3);
+    background-color:rgba(255, 255, 255, 0.1) ;
 }
 
 .generate-btn:active {
@@ -143,6 +165,7 @@ textarea {
 .spinner {
     width: 50px;
     height: 50px;
+    border-radius: 50px;
     border: 5px solid var(--primary-accent);
     border-top: 5px solid var(--secondary-accent);
     animation: spin 1s linear infinite;
@@ -197,8 +220,10 @@ textarea {
     margin-bottom: 5px;
 }
 
-#recipeContent p {
+/* Target paragraphs inside the recipe content to add spacing */
+#recipe-content p {
     margin-bottom: 15px;
+    line-height: 1.6; /* Adjust this value to increase/decrease spacing */
 }
 
 .recipe-title {
@@ -237,6 +262,40 @@ textarea {
     margin-top: 20px;
     border: 1px solid #f5c6cb;
 }
+@media print {
+    /* Hide everything that isn't the recipe when printing */
+    body > #container > header,
+    body > #container > main > #input-section,
+    body > #container > main > .ingredient-section,
+    body > #container > main > .preference-section,
+    body > #container > main > .cuisine-section,
+    body > #container > main > .generate-btn,
+    body > #container > main > .loading,
+    .recipe-actions {
+        display: none !important;
+    }
+
+    /* Ensure the main container and recipe section are visible and styled for print */
+    body, #container, main, .recipe-section {
+        background: #fff !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        border: none !important;
+        display: block !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .recipe-section h2, 
+    .recipe-section #recipe-content {
+        color: #000 !important;
+        font-size: 12pt;
+        font-family: 'Times New Roman', Times, serif;
+    }
+}
+
 
 @media (max-width: 600px) {
 

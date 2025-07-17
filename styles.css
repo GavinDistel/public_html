@@ -59,6 +59,7 @@ a {
     width: 100%;
     padding: 2rem;
     box-sizing: border-box;
+    cursor: default;
 }
 
  #tswcontainer {

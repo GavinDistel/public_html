@@ -19,11 +19,12 @@ class aiCookApp {
         this.loading = document.getElementById('loading');
         this.recipeSection = document.getElementById('recipe-section');
         this.recipeContent = document.getElementById('recipe-content');
+        this.printBtn = document.getElementById('print-recipe-btn');
     }
 
     bindEvents() {
-        this.saveApiKeyBtn.addEventListener('click', () => this.saveApiKey.bind());
-        this.generateBtn.addEventListener('click', () => this.generateRecipe.bind());
+        this.saveApiKeyBtn.addEventListener('click', () => this.saveApiKey());
+        this.generateBtn.addEventListener('click', () => this.generateRecipe());
         this.apiKeyInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 this.saveApiKey();
@@ -37,18 +38,20 @@ class aiCookApp {
             }
         }
         );
+
+        this.printBtn.addEventListener('click', () => window.print());
     }
 
     saveApiKey() {
-        const apiKey = this.apiKeyInput.ariaValueMax.trim();
+        const apiKey = this.apiKeyInput.value.trim();
         if (apiKey) {
             localStorage.setItem('geminiApiKey', apiKey);
             this.apiKey = apiKey;
             this.updateApiKeyStatus(true);
-            this.showcase('API Key saved succesfully!');
+            this.showcase('API Key saved successfully!');
 
         } else {
-            this.showError('Please eneter a valid API Key.')
+            this.showError('Please enter a valid API Key.');
         }
     }
 
@@ -65,15 +68,21 @@ class aiCookApp {
         const btn = this.saveApiKeyBtn;
         if (isValid) {
             btn.textContent = 'Saved ';
-            btn.style.backgroundColor = '#28a745';
 
         } else {
             btn.textContent = 'Save';
-            btn.style.backgroundColor = '#dc3545';
         }
     }
 
-    async generateBtn() {
+    showError(message) {
+        alert(`Error: ${message}`);
+    }
+
+    showcase(message) {
+        alert(`Success: ${message}`);
+    }
+
+    async generateRecipe() {
         if (!this.apiKey) {
             this.showError('Please enter a valid API Key.');
             return;
@@ -93,7 +102,7 @@ class aiCookApp {
             this.displayRecipe(recipe);
         } catch (error) {
             console.error('error generating recipe:', error);
-            this.showError('Error generating recipe. Please check you API key and try again.');
+            this.showError('Error generating recipe. Please check your API key and try again.');
         } finally {
             this.showLoading(false);
         }
@@ -105,22 +114,22 @@ class aiCookApp {
 
         let prompt = `Create a detailed recipe using these ingredients: ${ingredients}.`;
         if (dietary) {
-            prompt += `make sure my dietary preference is ${dietary}.`;
+            prompt += ` Make sure my dietary preference is ${dietary}.`;
         }
 
         if (cuisine) {
-            prompt += ` cuisine type should be: ${cuisine}.`
+            prompt += ` The cuisine type should be: ${cuisine}.`
         }
 
-        prompt += `please format your response as fllows:
-        - recipe name
+        prompt += `Please format your response as follows:
+        - 
         - prep time
         - cook time
         - servings
         - ingredients with quantities
         - instructions (numbered steps)
         - tips (optional)
-        make sure the recipe is practical and delicious!
+        Make sure the recipe is practical and delicious!
         `;
         const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${this.apiKey}`,
             {
@@ -135,7 +144,7 @@ class aiCookApp {
                         }]
                     }],
                     generationConfig: {
-                        tempurature: 0.7,
+                        temperature: 0.7,
                         maxOutputTokens: 1024,
                         topP: 0.95,
                         topK: 40,
@@ -144,11 +153,51 @@ class aiCookApp {
             });
 
         if (!response.ok) {
-            const errorData = await response.json
-            throw new Error(`HTTP error! status: ${errorData?.message} || unKnown error}`);
+            const errorData = await response.json();
+            throw new Error(`HTTP error! ${response.status}: ${errorData?.error?.message || 'Unknown error'}`);
         }
         const data = await response.json();
         return data.candidates[0].content.parts[0].text.trim();
     }
+    formatRecipe(text) {
+        text = text.replace(/(^| ) +/gm, '$1')
+        text = text.replace(/^-*/gm, '')
+        text = text.replace(/\*\*(.+?)\*\*/gm, '<strong>$1</strong>')
+        text = text.replace(/^(.+)/g, '<h3 class="recipe-title">$1</h3>')
+        text = text.replace(/^\*/gm, '•')
+        text = text.replace(/^(.+)/gm, '<p>$1</p>')
+        return text;
+    }
 
+    displayRecipe(recipeText) {
+        // 1. Call your function and store the result
+        const formattedHtml = this.formatRecipe(recipeText);
+    
+        // 2. Use the formatted result
+        this.recipeContent.innerHTML = formattedHtml;
+        this.showRecipe();
+    }
+
+    showRecipe() {
+        this.recipeSection.classList.add('show');
+        this.recipeSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    showLoading(show) {
+        if (show) {
+            this.loading.classList.add('show');
+            this.generateBtn.disabled = true;
+            this.generateBtn.textContent = "Generating...";
+        } else {
+            this.loading.classList.remove('show');
+            this.generateBtn.disabled = false;
+            this.generateBtn.textContent = "Generate Recipe";
+        }
+    }
+
+    hideRecipe() {
+        this.recipeSection.classList.remove('show');
+    }
 }
+
+document.addEventListener('DOMContentLoaded', () => new aiCookApp());
