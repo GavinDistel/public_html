@@ -40,7 +40,7 @@ header p {
 }
 
 main{
-    background-color: rgba(255, 255, 255, 0.025);
+    background-color: rgba(255, 255, 255, 0.05);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 8px 32px rgba(1, 73, 3, 0.4);
