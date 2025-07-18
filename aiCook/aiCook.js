@@ -112,7 +112,7 @@ class aiCookApp {
         const dietary = this.dietarySelect.value;
         const cuisine = this.cuisineSelect.value;
 
-        let prompt = `Create a detailed recipe using these ingredients: ${ingredients}.`;
+        let prompt = `Create a detailed recipe using these ingredients: ${ingredients}. and keep the title of the recipe short and simple, no essays for the title. If it has dietary restrictions, please state it in the title.`;
         if (dietary) {
             prompt += ` Make sure my dietary preference is ${dietary}.`;
         }
